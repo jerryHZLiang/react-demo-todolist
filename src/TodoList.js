@@ -59,7 +59,7 @@ class TodoList extends React.Component {
             <div className="App">
                 <div>
                     <input value={this.state.inputValue} onChange={this.handleInputChange}/>
-                    <button onClick={this.handleBtnClick}>add</button>
+                    <button className='blue-btn' onClick={this.handleBtnClick}>add</button>
                 </div>
                 <ul>
                     {this.getTodoItems()}
