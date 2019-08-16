@@ -12,6 +12,7 @@ class TodoList extends React.Component {
      handleBtnClick() {
         this.setState({
                 list: [...this.state.list, this.state.inputValue],
+                inputValue: ''
             }
         )
     }
@@ -24,7 +25,7 @@ class TodoList extends React.Component {
         return (
             <div className="App">
                 <div>
-                    <input onChange={this.handleInputChange.bind(this)}/>
+                    <input value={this.state.inputValue} onChange={this.handleInputChange.bind(this)}/>
                     <button onClick={this.handleBtnClick.bind(this)}>add</button>
                 </div>
                 <ul>
