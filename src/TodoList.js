@@ -10,15 +10,25 @@ class TodoList extends React.Component {
     }
 
      handleBtnClick() {
-        this.setState({
-                list: [...this.state.list, this.state.inputValue],
-                inputValue: ''
-            }
-        )
+        if(this.state.inputValue !== ''){
+            this.setState({
+                    list: [...this.state.list, this.state.inputValue],
+                    inputValue: ''
+                }
+            )
+        }
+
     }
      handleInputChange(e){
         this.setState({
             inputValue: e.target.value
+        })
+    }
+    handleItemClick(index){
+        const  list = [...this.state.list];
+        list.splice(index, 1);
+        this.setState({
+            list: list
         })
     }
     render() {
@@ -30,7 +40,7 @@ class TodoList extends React.Component {
                 </div>
                 <ul>
                     {this.state.list.map((item, index)=>{
-                        return <li key={index}>{item}</li>
+                        return <li onClick={this.handleItemClick.bind(this, index)} key={index}>{item}</li>
                     })}
                 </ul>
             </div>
